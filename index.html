@@ -1,48 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gabe & Monse | Save the Date</title>
+  <meta charset="UTF-8" />
+  <title>Gabriel J. Cincotta & Michelle Wong | Wedding</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
+      font-family: "Georgia", serif;
       background: #f8faf9;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
+
     .card {
-      background: white;
-      padding: 50px;
-      border-radius: 20px;
+      background: #ffffff;
+      padding: 60px 50px;
+      border-radius: 24px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      max-width: 500px;
+      width: 90%;
     }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
     .date {
       font-size: 1.2rem;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
-    .button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 30px;
+
+    .tagline {
+      font-size: 1rem;
+      margin: 6px 0;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 28px;
       border-radius: 999px;
       background: #5F89BD;
-      color: white;
+      color: #ffffff;
       text-decoration: none;
       font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .lang {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      opacity: 0.7;
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
-    <h1>Gabe & Monse</h1>
+    <h1>Gabriel J. Cincotta<br>&amp; Michelle Wong</h1>
+
     <p class="date">November 13, 2026</p>
-    <p>We can’t wait to celebrate with you 🤍</p>
-    <a class="button" href="#">RSVP</a>
+
+    <p class="tagline">We can’t wait to celebrate with you 🤍</p>
+    <p class="tagline">No podemos esperar para celebrar con ustedes 🤍</p>
+
+    <div class="buttons">
+      <a href="rsvp.html" class="btn">RSVP</a>
+    </div>
+
+    <div class="lang">
+      English • Español
+    </div>
   </div>
 
 </body>
