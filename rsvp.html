@@ -1,19 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RSVP | Gabriel & Michelle</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Keep your RSVP CSS here OR inside the HTML you already have -->
+  <link rel="stylesheet" href="site.css" />
+  <script src="i18n.js"></script>
 </head>
+<body onload="initWeddingSite();">
 
-<body>
+  <div class="navbar">
+    <div class="nav-inner">
+      <div class="brand">G &amp; M</div>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home"></a>
+        <a href="our-story.html" data-i18n="nav_story"></a>
+        <a href="dress-code.html" data-i18n="nav_dress"></a>
+        <a href="qa.html" data-i18n="nav_qa"></a>
+        <a href="travel.html" data-i18n="nav_travel"></a>
+        <a href="registry.html" data-i18n="nav_registry"></a>
+        <a href="rsvp.html" data-i18n="nav_rsvp"></a>
+      </div>
+      <div class="lang-toggle">
+        <button id="langEN" class="pill" onclick="setLang('en')">EN</button>
+        <button id="langES" class="pill" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- 🔽 PASTE YOUR EXISTING RSVP HTML RIGHT HERE 🔽 -->
+  <div class="container">
+    <div class="card">
+      <h1 class="page-title" data-i18n="rsvp_title"></h1>
+      <p class="muted" data-i18n="rsvp_sub"></p>
 
-  <!doctype html>
+      <div class="hr"></div>
+
+      <main>
+        <<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -955,10 +978,13 @@
   </script>
 </body>
 </html>
+>
 
+        <!-- TEMP placeholder (delete after you paste yours) -->
+        <p class="muted">Paste your RSVP form here.</p>
+      </main>
+    </div>
   </div>
-
-  <!-- 🔼 END RSVP HTML 🔼 -->
 
 </body>
 </html>
