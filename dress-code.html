@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dress Code | Gabriel & Michelle</title>
+  <link rel="stylesheet" href="site.css" />
+  <script src="i18n.js"></script>
+</head>
+<body onload="initWeddingSite();">
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <div class="brand">G &amp; M</div>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home"></a>
+        <a href="our-story.html" data-i18n="nav_story"></a>
+        <a href="dress-code.html" data-i18n="nav_dress"></a>
+        <a href="qa.html" data-i18n="nav_qa"></a>
+        <a href="travel.html" data-i18n="nav_travel"></a>
+        <a href="registry.html" data-i18n="nav_registry"></a>
+        <a href="rsvp.html" data-i18n="nav_rsvp"></a>
+      </div>
+      <div class="lang-toggle">
+        <button id="langEN" class="pill" onclick="setLang('en')">EN</button>
+        <button id="langES" class="pill" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1 class="page-title" data-i18n="dress_title"></h1>
+      <p class="muted" data-i18n="dress_sub"></p>
+
+      <div class="hr"></div>
+
+      <div class="grid">
+        <div class="card" style="box-shadow:none;border:1px solid rgba(0,0,0,.08);">
+          <h3 data-i18n="dress_ok"></h3>
+          <ul class="muted">
+            <li>Dressy / semi-formal attire</li>
+            <li>Nice dresses, jumpsuits, suits, collared shirts</li>
+            <li>Comfortable shoes (venue may include walking)</li>
+          </ul>
+        </div>
+
+        <div class="card" style="box-shadow:none;border:1px solid rgba(0,0,0,.08);">
+          <h3 data-i18n="dress_no"></h3>
+          <ul class="muted">
+            <li>White / ivory (reserved for the bride)</li>
+            <li>Super casual wear (gym clothes, flip flops)</li>
+            <li>Anything you wouldn’t want in wedding photos</li>
+          </ul>
+        </div>
+
+        <div class="card" style="box-shadow:none;border:1px solid rgba(0,0,0,.08);">
+          <h3>Quick examples</h3>
+          <ul class="muted">
+            <li>Men: suit or dress shirt + slacks</li>
+            <li>Women: cocktail dress / midi dress / jumpsuit</li>
+            <li>Kids: nice, comfortable outfits</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tiny muted" style="margin-top:18px;">
+        Tell me your official dress code (Cocktail / Semi-Formal / Formal) and I’ll rewrite this page perfectly.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
