@@ -1,94 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <title>Gabriel J. Cincotta & Michelle Wong | Wedding</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: #f8faf9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 60px 50px;
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      max-width: 500px;
-      width: 90%;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
-
-    .date {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      margin: 6px 0;
-    }
-
-    .buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border-radius: 999px;
-      background: #5F89BD;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .lang {
-      margin-top: 30px;
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home | Gabriel & Michelle</title>
+  <link rel="stylesheet" href="site.css" />
+  <script src="i18n.js"></script>
 </head>
+<body onload="initWeddingSite(); initCountdown('2026-11-13T16:00:00-06:00');">
 
-<body>
+  <div class="navbar">
+    <div class="nav-inner">
+      <div class="brand">G &amp; M</div>
 
-  <div class="card">
-    <h1>Gabriel J. Cincotta<br>&amp; Michelle Wong</h1>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home"></a>
+        <a href="our-story.html" data-i18n="nav_story"></a>
+        <a href="dress-code.html" data-i18n="nav_dress"></a>
+        <a href="qa.html" data-i18n="nav_qa"></a>
+        <a href="travel.html" data-i18n="nav_travel"></a>
+        <a href="registry.html" data-i18n="nav_registry"></a>
+        <a href="rsvp.html" data-i18n="nav_rsvp"></a>
+      </div>
 
-    <p class="date">November 13, 2026</p>
-
-    <p class="tagline">We can’t wait to celebrate with you 🤍</p>
-    <p class="tagline">No podemos esperar para celebrar con ustedes 🤍</p>
-
-    <div class="buttons">
-      <a href="rsvp.html" class="btn">RSVP</a>
+      <div class="lang-toggle">
+        <button id="langEN" class="pill" onclick="setLang('en')">EN</button>
+        <button id="langES" class="pill" onclick="setLang('es')">ES</button>
+      </div>
     </div>
+  </div>
 
-    <div class="lang">
-      English • Español
+  <div class="container">
+    <div class="card hero">
+      <div>
+        <h1 class="title" data-i18n="home_title"></h1>
+        <p class="subtitle" data-i18n="home_date"></p>
+
+        <div class="meta">
+          <span class="badge"><strong data-i18n="home_location_label"></strong>: <span id="wLocation">[Your Wedding Location Here]</span></span>
+        </div>
+
+        <div class="hr"></div>
+
+        <p class="subtitle" data-i18n="home_countdown_label"></p>
+        <div class="countdown">
+          <div class="kpi"><strong id="cdDays">0</strong><span>Days</span></div>
+          <div class="kpi"><strong id="cdHours">0</strong><span>Hours</span></div>
+          <div class="kpi"><strong id="cdMins">0</strong><span>Minutes</span></div>
+          <div class="kpi"><strong id="cdSecs">0</strong><span>Seconds</span></div>
+        </div>
+
+        <div class="btn-row" style="justify-content:flex-start;margin-top:18px;">
+          <a class="btn" href="rsvp.html" data-i18n="home_cta_rsvp"></a>
+          <a class="btn btn-outline" href="our-story.html" data-i18n="nav_story"></a>
+        </div>
+
+        <p class="tiny muted" style="margin-top:16px;">
+          Tip: Replace <code>[Your Wedding Location Here]</code> with your venue/city.
+        </p>
+      </div>
+
+      <div>
+        <img class="photo" src="assets/couple.jpg" alt="Gabriel and Michelle" />
+      </div>
     </div>
   </div>
 
