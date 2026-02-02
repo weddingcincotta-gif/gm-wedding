@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Choose Language | Elegir idioma</title>
+  <link rel="stylesheet" href="site.css" />
+  <script>
+    // If language already chosen, skip gate
+    (function () {
+      const lang = localStorage.getItem("wedding_lang");
+      if (lang === "en" || lang === "es") {
+        window.location.href = "index.html";
+      }
+    })();
+  </script>
+</head>
+<body class="page-center">
+
+  <div class="card">
+    <h1 class="title">Gabriel J. Cincotta &amp; Michelle Wong</h1>
+    <p class="subtitle">Please choose a language • Por favor seleccione un idioma</p>
+
+    <div class="btn-row">
+      <button class="btn" onclick="setLang('en')">English</button>
+      <button class="btn btn-outline" onclick="setLang('es')">Español</button>
+    </div>
+
+    <p class="tiny muted">You can change this later on any page.</p>
+    <p class="tiny muted">Puede cambiarlo después en cualquier página.</p>
+  </div>
+
+  <script>
+    function setLang(lang){
+      localStorage.setItem("wedding_lang", lang);
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
