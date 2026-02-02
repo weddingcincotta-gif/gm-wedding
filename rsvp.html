@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RSVP | Gabriel & Michelle</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Keep your RSVP CSS here OR inside the HTML you already have -->
+</head>
+
+<body>
+
+  <!-- 🔽 PASTE YOUR EXISTING RSVP HTML RIGHT HERE 🔽 -->
+
+  <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding RSVP • November 13, 2026</title>
+
+  <!-- Elegant fonts similar to reference -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Reference-like palette: soft whites + cool gray + muted sage */
+      --paper:#fbfbfa;
+      --paper2:#ffffff;
+      --ink:#2c2c2c;
+      --muted:#7a7a7a;
+      --line:#e9e6e1;
+
+      --sage:#8ea596;
+      --sage2:#b9c8bf;
+      --blush:#e7c4c7;
+      --champagne:#e8dcc7;
+      --sky:#c9d8e7;
+
+      --shadow: 0 20px 70px rgba(0,0,0,.10);
+      --radius: 24px;
+      --danger:#d64545;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 50% 0%, rgba(233,230,225,.7), transparent 60%),
+                  linear-gradient(180deg, #f4f2ef 0%, #f8f6f3 40%, #f3f1ee 100%);
+      color: var(--ink);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .wrap{max-width:980px;margin:0 auto;padding:22px 16px 70px;}
+
+    /* Language toggle */
+    .topbar{display:flex;justify-content:flex-end;align-items:center;margin:8px 0 16px;}
+    .lang{
+      display:inline-flex;
+      gap:10px;
+      padding:8px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.7);
+      border-radius:999px;
+      box-shadow:0 10px 26px rgba(0,0,0,.06);
+    }
+    .pill{
+      border:0;background:transparent;cursor:pointer;
+      padding:10px 14px;border-radius:999px;
+      font-weight:800;color:var(--muted);
+      transition:.2s ease;
+    }
+    .pill.active{
+      color:var(--ink);
+      background:rgba(142,165,150,.16);
+      box-shadow: inset 0 0 0 1px rgba(233,230,225,.9);
+    }
+
+    /* Invite card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(251,251,250,.86));
+      border: 1px solid rgba(233,230,225,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter: blur(10px);
+    }
+
+    /* Watercolor floral header band (CSS-only, soft like reference) */
+    .floral-top{
+      position:relative;
+      height:150px;
+      background:
+        radial-gradient(60px 40px at 15% 60%, rgba(142,165,150,.35), transparent 70%),
+        radial-gradient(70px 50px at 25% 30%, rgba(185,200,191,.35), transparent 72%),
+        radial-gradient(60px 40px at 35% 70%, rgba(201,216,231,.30), transparent 70%),
+        radial-gradient(70px 45px at 48% 38%, rgba(231,196,199,.30), transparent 70%),
+        radial-gradient(90px 60px at 60% 62%, rgba(142,165,150,.26), transparent 72%),
+        radial-gradient(70px 50px at 72% 30%, rgba(185,200,191,.28), transparent 72%),
+        radial-gradient(70px 50px at 84% 62%, rgba(231,196,199,.24), transparent 72%),
+        radial-gradient(70px 50px at 92% 36%, rgba(201,216,231,.22), transparent 72%),
+        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(233,230,225,.85);
+    }
+    /* faint vines */
+    .floral-top::before{
+      content:"";
+      position:absolute;
+      left:-20px; right:-20px; top:-10px; bottom:-30px;
+      opacity:.55;
+      background:
+        radial-gradient(circle at 10% 80%, rgba(142,165,150,.55) 0 5px, transparent 6px),
+        radial-gradient(circle at 13% 70%, rgba(142,165,150,.55) 0 4px, transparent 5px),
+        radial-gradient(circle at 16% 78%, rgba(142,165,150,.55) 0 5px, transparent 6px),
+
+        radial-gradient(circle at 82% 78%, rgba(142,165,150,.50) 0 5px, transparent 6px),
+        radial-gradient(circle at 85% 66%, rgba(142,165,150,.50) 0 4px, transparent 5px),
+        radial-gradient(circle at 88% 76%, rgba(142,165,150,.50) 0 5px, transparent 6px);
+      filter: blur(.2px);
+    }
+
+    .inner{padding:22px 22px 26px; position:relative;}
+    .center{text-align:center;}
+
+    .names{
+      font-family:"Great Vibes", cursive;
+      font-size: 66px;
+      line-height:1.0;
+      margin: 6px 0 6px;
+      color:#2b2b2b;
+    }
+
+    .smallcaps{
+      font-family:"Playfair Display", serif;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 6px 0 14px;
+    }
+
+    .dateRow{
+      display:inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(233,230,225,.95);
+      background: rgba(255,255,255,.7);
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      color:#3a3a3a;
+    }
+
+    .thinLine{
+      height:1px;
+      background: rgba(233,230,225,.85);
+      margin: 18px 0;
+    }
+
+    .rsvpTitle{
+      font-family:"Great Vibes", cursive;
+      font-size: 52px;
+      margin: 4px 0 2px;
+      color:#2b2b2b;
+    }
+    .prompt{
+      font-family:"Playfair Display", serif;
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 auto 10px;
+      max-width: 620px;
+    }
+
+    .btnrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top:12px;
+    }
+
+    /* Subtle rounded buttons (reference-like) */
+    .btn{
+      border:1px solid rgba(233,230,225,.95);
+      cursor:pointer;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-weight: 800;
+      color:#2f2f2f;
+      background: rgba(255,255,255,.78);
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 10px 22px rgba(0,0,0,.06);
+    }
+    .btn:hover{background: rgba(255,255,255,.92)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      background: rgba(142,165,150,.16);
+    }
+    .btn.secondary{
+      background: rgba(231,196,199,.14);
+    }
+    .btn.ghost{
+      background: rgba(201,216,231,.12);
+    }
+
+    form{margin-top:10px}
+    .hidden{display:none!important}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    @media (max-width:760px){
+      .grid{grid-template-columns:1fr}
+      .names{font-size:54px}
+      .rsvpTitle{font-size:46px}
+    }
+
+    label{
+      display:block;
+      font-size: 12px;
+      font-weight: 800;
+      color:#4a4a4a;
+      margin: 12px 0 6px;
+      font-family:"Playfair Display", serif;
+    }
+
+    input, select, textarea{
+      width:100%;
+      border-radius: 16px;
+      border: 1px solid rgba(233,230,225,.95);
+      padding: 12px 12px;
+      background: rgba(255,255,255,.86);
+      outline:none;
+      font-size: 14px;
+      transition: box-shadow .15s ease, border-color .15s ease;
+    }
+    textarea{min-height:110px;resize:vertical}
+
+    .note{
+      margin-top:14px;
+      background: rgba(255,255,255,.72);
+      border: 1px dashed rgba(233,230,225,.95);
+      border-radius: 16px;
+      padding: 12px;
+      color: var(--muted);
+      font-family:"Playfair Display", serif;
+      line-height:1.45;
+    }
+
+    .hint{font-size:12px;color:var(--muted);margin-top:6px}
+
+    .actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .small{
+      text-align:center;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+
+    /* Error glow + shake */
+    .field-error input,
+    .field-error select,
+    .field-error textarea{
+      border-color: rgba(214,69,69,.95);
+      box-shadow: 0 0 0 4px rgba(214,69,69,.18);
+      animation: shake .34s ease both;
+    }
+    @keyframes shake{
+      0%{transform:translateX(0)}
+      25%{transform:translateX(-6px)}
+      50%{transform:translateX(6px)}
+      75%{transform:translateX(-4px)}
+      100%{transform:translateX(0)}
+    }
+
+    .loading{opacity:.65;pointer-events:none;}
+
+    /* Success overlay */
+    .overlay{
+      position:fixed; inset:0;
+      background: rgba(248,246,243,.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      overflow:hidden;
+    }
+    .overlay.show{display:flex;}
+    .success{
+      width:min(760px, 92vw);
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(233,230,225,.95);
+      border-radius: 30px;
+      padding: 28px;
+      text-align:center;
+      box-shadow: var(--shadow);
+    }
+    .thankTitle{
+      font-family:"Great Vibes", cursive;
+      font-size: 58px;
+      margin: 2px 0 8px;
+    }
+    .thankText{
+      font-family:"Playfair Display", serif;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 auto;
+      max-width: 560px;
+      line-height:1.55;
+    }
+    .sig{margin-top:14px;font-weight:900}
+
+    /* Elegant confetti (tiny, not loud) */
+    .confetti{
+      position:absolute;
+      top:-10px;
+      width:8px;height:12px;border-radius:3px;
+      opacity:.9;
+      animation: fall linear forwards;
+      pointer-events:none;
+    }
+    @keyframes fall{
+      to{transform: translateY(105vh) rotate(520deg);opacity:.98;}
+    }
+
+    /* Soft petals falling (no emoji) */
+    .petal{
+      position:absolute;
+      top:-40px;
+      width: 14px; height: 20px;
+      border-radius: 60% 60% 60% 60%;
+      opacity: .9;
+      pointer-events:none;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.08));
+      animation: petalfall linear forwards;
+    }
+    .petal::after{
+      content:"";
+      position:absolute;
+      inset:2px 4px 6px 4px;
+      border-radius: 60%;
+      background: rgba(255,255,255,.26);
+      transform: rotate(12deg);
+    }
+    @keyframes petalfall{
+      to{transform: translateY(112vh) rotate(380deg);opacity:.98;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="lang" aria-label="Language toggle">
+        <button class="pill active" id="btnEN" type="button">English</button>
+        <button class="pill" id="btnES" type="button">Español</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="floral-top"></div>
+
+      <div class="inner">
+        <div class="center">
+          <div class="names" id="namesLine">Gabriel & Michelle</div>
+          <div class="smallcaps" id="saveLine">SAVE THE DATE</div>
+          <div class="dateRow" id="dateLine">November 13, 2026</div>
+
+          <div class="thinLine"></div>
+
+          <div class="rsvpTitle" id="rsvpTitle">RSVP</div>
+          <div class="prompt" id="promptLine">Will you be coming to the wedding?</div>
+
+          <div class="btnrow" role="group" aria-label="RSVP choice">
+            <button class="btn primary" type="button" data-choice="yes" id="choiceYes">Yes, I’ll be there</button>
+            <button class="btn secondary" type="button" data-choice="no" id="choiceNo">No, I can’t make it</button>
+            <button class="btn ghost" type="button" data-choice="maybe" id="choiceMaybe">I need more time</button>
+          </div>
+
+          <div class="note" id="noteLine">
+            Thank you for responding — it truly means a lot.
+          </div>
+        </div>
+
+        <form id="rsvpForm" novalidate>
+          <input type="hidden" id="language" value="en" />
+          <input type="hidden" id="response" value="" />
+
+          <div id="sharedFields" class="hidden">
+            <div class="thinLine"></div>
+
+            <div class="grid">
+              <div class="field" data-required="true">
+                <label id="lblFirst">First Name</label>
+                <input id="firstName" type="text" autocomplete="given-name" />
+              </div>
+              <div class="field" data-required="true">
+                <label id="lblLast">Last Name</label>
+                <input id="lastName" type="text" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <!-- YES -->
+            <div id="yesBlock" class="hidden">
+              <div class="grid">
+                <div class="field" data-required="true">
+                  <label id="lblPhone">Phone Number</label>
+                  <input id="phone" type="tel" autocomplete="tel" placeholder="(123) 456-7890" />
+                </div>
+                <div class="field" data-required="true">
+                  <label id="lblEmail">Email</label>
+                  <input id="email" type="email" autocomplete="email" placeholder="name@email.com" />
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="field" data-required="true">
+                  <label id="lblAddress">Address</label>
+                  <input id="address" type="text" autocomplete="street-address" />
+                </div>
+                <div class="field" data-required="true">
+                  <label id="lblCity">City</label>
+                  <input id="city" type="text" autocomplete="address-level2" />
+                </div>
+              </div>
+
+              <div class="grid">
+                <div class="field" data-required="true">
+                  <label id="lblState">State</label>
+                  <input id="state" type="text" autocomplete="address-level1" />
+                </div>
+                <div class="field" data-required="true">
+                  <label id="lblZip">Zip</label>
+                  <input id="zip" type="text" inputmode="numeric" autocomplete="postal-code" />
+                </div>
+              </div>
+
+              <div class="field" data-required="true">
+                <label id="lblExtraGuests">How many additional guests will be coming with you?</label>
+                <select id="extraGuestsCount">
+                  <option value="">Select…</option>
+                  <option value="0">0 (just me)</option>
+                  <option value="1">1 additional guest</option>
+                  <option value="2">2 additional guests</option>
+                  <option value="3">3 additional guests</option>
+                  <option value="4">4 additional guests</option>
+                  <option value="5">5 additional guests</option>
+                  <option value="6">6 additional guests</option>
+                  <option value="7">7 additional guests</option>
+                  <option value="8">8 additional guests</option>
+                </select>
+              </div>
+
+              <div id="extraGuestNamesWrap" class="hidden">
+                <div class="hint" id="extraGuestNamesTitle" style="font-family:'Playfair Display',serif;font-weight:600;margin-top:6px;">
+                  Additional Guest Names
+                </div>
+                <div id="extraGuestNamesFields"></div>
+                <div class="hint" id="extraHint">Please list the full name for each additional guest.</div>
+              </div>
+
+              <div class="field">
+                <label id="lblMsgYes">Message to the Bride & Groom (optional)</label>
+                <textarea id="messageYes" placeholder="Optional…"></textarea>
+              </div>
+            </div>
+
+            <!-- NO -->
+            <div id="noBlock" class="hidden">
+              <div class="note" id="noNote">
+                We appreciate you so much. No hard feelings at all — we’ll miss you and hope to celebrate together another time.
+              </div>
+              <div class="field">
+                <label id="lblMsgNo">Message to the Bride & Groom (optional)</label>
+                <textarea id="messageNo" placeholder="Optional…"></textarea>
+              </div>
+            </div>
+
+            <!-- MAYBE -->
+            <div id="maybeBlock" class="hidden">
+              <div class="field" data-required="true">
+                <label id="lblFollow">How much time until we send another RSVP?</label>
+                <select id="followUpTime">
+                  <option value="">Select…</option>
+                  <option value="1 week">1 week</option>
+                  <option value="2 weeks">2 weeks</option>
+                  <option value="3 weeks">3 weeks</option>
+                  <option value="1 month">1 month</option>
+                </select>
+              </div>
+              <div class="field">
+                <label id="lblMsgMaybe">Message to the Bride & Groom (optional)</label>
+                <textarea id="messageMaybe" placeholder="Optional…"></textarea>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn primary" id="submitBtn" type="submit">Submit RSVP</button>
+              <button class="btn" id="resetBtn" type="button">Start Over</button>
+            </div>
+
+            <div class="small" id="privacyLine">We’ll only use your info for wedding planning purposes.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden iframe to avoid CORS / failed fetch -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <!-- Success overlay -->
+  <div class="overlay" id="overlay">
+    <div class="success">
+      <div class="thankTitle" id="thankTitle">Thank You!</div>
+      <p class="thankText" id="thankText">
+        Your RSVP has been received. We’re so grateful you took the time to respond.
+      </p>
+      <div class="sig" id="thankSig">— Gabriel Cincotta & Michelle Wong</div>
+    </div>
+  </div>
+
+  <script>
+    /************ NEW WEB APP URL ************/
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxIvAHgrnUkwlZz2lVJn0_aMjvGppbfTIRa2I2cn476034gTPl4VV0UpiV822Ra0-cpQg/exec";
+
+    const T = {
+      en: {
+        namesLine: "Gabriel & Michelle",
+        saveLine: "SAVE THE DATE",
+        dateLine: "November 13, 2026",
+        rsvpTitle: "RSVP",
+        promptLine: "Will you be coming to the wedding?",
+        choiceYes: "Yes, I’ll be there",
+        choiceNo: "No, I can’t make it",
+        choiceMaybe: "I need more time",
+        noteLine: "Thank you for responding — it truly means a lot.",
+
+        lblFirst: "First Name",
+        lblLast: "Last Name",
+        lblPhone: "Phone Number",
+        lblEmail: "Email",
+        lblAddress: "Address",
+        lblCity: "City",
+        lblState: "State",
+        lblZip: "Zip",
+        lblExtraGuests: "How many additional guests will be coming with you?",
+        extraGuestNamesTitle: "Additional Guest Names",
+        extraHint: "Please list the full name for each additional guest.",
+        lblMsgYes: "Message to the Bride & Groom (optional)",
+
+        noNote: "We appreciate you so much. No hard feelings at all — we’ll miss you and hope to celebrate together another time.",
+        lblMsgNo: "Message to the Bride & Groom (optional)",
+
+        lblFollow: "How much time until we send another RSVP?",
+        lblMsgMaybe: "Message to the Bride & Groom (optional)",
+
+        submitBtn: "Submit RSVP",
+        resetBtn: "Start Over",
+        privacyLine: "We’ll only use your info for wedding planning purposes.",
+
+        thankTitle: "Thank You!",
+        thankText: "Your RSVP has been received. We’re so grateful you took the time to respond.",
+        thankSig: "— Gabriel Cincotta & Michelle Wong",
+
+        extraGuestLabel: (n) => `Additional Guest #${n} Full Name`
+      },
+      es: {
+        namesLine: "Gabriel y Michelle",
+        saveLine: "RESERVA LA FECHA",
+        dateLine: "13 de noviembre de 2026",
+        rsvpTitle: "RSVP",
+        promptLine: "¿Vendrás a la boda?",
+        choiceYes: "Sí, asistiré",
+        choiceNo: "No podré asistir",
+        choiceMaybe: "Necesito más tiempo",
+        noteLine: "Gracias por responder — de verdad significa mucho para nosotros.",
+
+        lblFirst: "Nombre",
+        lblLast: "Apellido",
+        lblPhone: "Teléfono",
+        lblEmail: "Correo electrónico",
+        lblAddress: "Dirección",
+        lblCity: "Ciudad",
+        lblState: "Estado",
+        lblZip: "Código postal",
+        lblExtraGuests: "¿Cuántos invitados adicionales vendrán contigo?",
+        extraGuestNamesTitle: "Nombres de invitados adicionales",
+        extraHint: "Escribe el nombre completo de cada invitado adicional.",
+        lblMsgYes: "Mensaje para los novios (opcional)",
+
+        noNote: "Te agradecemos muchísimo. No hay resentimientos — te vamos a extrañar y esperamos celebrar juntos en otra ocasión.",
+        lblMsgNo: "Mensaje para los novios (opcional)",
+
+        lblFollow: "¿En cuánto tiempo debemos enviar otro RSVP?",
+        lblMsgMaybe: "Mensaje para los novios (opcional)",
+
+        submitBtn: "Enviar RSVP",
+        resetBtn: "Empezar de nuevo",
+        privacyLine: "Solo usaremos tu información para la planeación de la boda.",
+
+        thankTitle: "¡Gracias!",
+        thankText: "Hemos recibido tu RSVP. Gracias por tomarte el tiempo de responder.",
+        thankSig: "— Gabriel Cincotta y Michelle Wong",
+
+        extraGuestLabel: (n) => `Invitado adicional #${n} Nombre completo`
+      }
+    };
+
+    const btnEN = document.getElementById("btnEN");
+    const btnES = document.getElementById("btnES");
+    const languageEl = document.getElementById("language");
+    const responseEl = document.getElementById("response");
+
+    const sharedFields = document.getElementById("sharedFields");
+    const yesBlock = document.getElementById("yesBlock");
+    const noBlock = document.getElementById("noBlock");
+    const maybeBlock = document.getElementById("maybeBlock");
+
+    const extraGuestsCountEl = document.getElementById("extraGuestsCount");
+    const extraGuestNamesWrap = document.getElementById("extraGuestNamesWrap");
+    const extraGuestNamesFields = document.getElementById("extraGuestNamesFields");
+
+    const form = document.getElementById("rsvpForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    const overlay = document.getElementById("overlay");
+    const iframe = document.getElementById("hidden_iframe");
+
+    function setLang(lang){
+      languageEl.value = lang;
+      btnEN.classList.toggle("active", lang==="en");
+      btnES.classList.toggle("active", lang==="es");
+
+      const t = T[lang];
+      document.getElementById("namesLine").textContent = t.namesLine;
+      document.getElementById("saveLine").textContent = t.saveLine;
+      document.getElementById("dateLine").textContent = t.dateLine;
+      document.getElementById("rsvpTitle").textContent = t.rsvpTitle;
+      document.getElementById("promptLine").textContent = t.promptLine;
+
+      document.getElementById("choiceYes").textContent = t.choiceYes;
+      document.getElementById("choiceNo").textContent = t.choiceNo;
+      document.getElementById("choiceMaybe").textContent = t.choiceMaybe;
+
+      document.getElementById("noteLine").textContent = t.noteLine;
+
+      document.getElementById("lblFirst").textContent = t.lblFirst;
+      document.getElementById("lblLast").textContent = t.lblLast;
+      document.getElementById("lblPhone").textContent = t.lblPhone;
+      document.getElementById("lblEmail").textContent = t.lblEmail;
+      document.getElementById("lblAddress").textContent = t.lblAddress;
+      document.getElementById("lblCity").textContent = t.lblCity;
+      document.getElementById("lblState").textContent = t.lblState;
+      document.getElementById("lblZip").textContent = t.lblZip;
+
+      document.getElementById("lblExtraGuests").textContent = t.lblExtraGuests;
+      document.getElementById("extraGuestNamesTitle").textContent = t.extraGuestNamesTitle;
+      document.getElementById("extraHint").textContent = t.extraHint;
+
+      document.getElementById("lblMsgYes").textContent = t.lblMsgYes;
+      document.getElementById("noNote").textContent = t.noNote;
+      document.getElementById("lblMsgNo").textContent = t.lblMsgNo;
+      document.getElementById("lblFollow").textContent = t.lblFollow;
+      document.getElementById("lblMsgMaybe").textContent = t.lblMsgMaybe;
+
+      submitBtn.textContent = t.submitBtn;
+      resetBtn.textContent = t.resetBtn;
+      document.getElementById("privacyLine").textContent = t.privacyLine;
+
+      document.getElementById("thankTitle").textContent = t.thankTitle;
+      document.getElementById("thankText").textContent = t.thankText;
+      document.getElementById("thankSig").textContent = t.thankSig;
+
+      extraGuestNamesFields.querySelectorAll("input[data-extra-index]").forEach(inp=>{
+        const idx = Number(inp.dataset.extraIndex);
+        const label = extraGuestNamesFields.querySelector(`label[for="${inp.id}"]`);
+        if (label) label.textContent = t.extraGuestLabel(idx);
+      });
+    }
+
+    btnEN.addEventListener("click", ()=>setLang("en"));
+    btnES.addEventListener("click", ()=>setLang("es"));
+
+    document.querySelectorAll("[data-choice]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const choice = btn.dataset.choice;
+        responseEl.value = choice;
+
+        sharedFields.classList.remove("hidden");
+        yesBlock.classList.toggle("hidden", choice !== "yes");
+        noBlock.classList.toggle("hidden", choice !== "no");
+        maybeBlock.classList.toggle("hidden", choice !== "maybe");
+
+        if (choice !== "yes"){
+          extraGuestsCountEl.value = "";
+          extraGuestNamesFields.innerHTML = "";
+          extraGuestNamesWrap.classList.add("hidden");
+        }
+
+        clearAllErrors();
+        window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+      });
+    });
+
+    extraGuestsCountEl.addEventListener("change", ()=>{
+      const n = Number(extraGuestsCountEl.value ?? "");
+      extraGuestNamesFields.innerHTML = "";
+
+      if (Number.isNaN(n) || n <= 0){
+        extraGuestNamesWrap.classList.add("hidden");
+        return;
+      }
+
+      extraGuestNamesWrap.classList.remove("hidden");
+      const t = T[languageEl.value];
+
+      for (let i=1; i<=n; i++){
+        const field = document.createElement("div");
+        field.className = "field";
+        field.dataset.required = "true";
+
+        const id = `extra_${i}`;
+        const label = document.createElement("label");
+        label.setAttribute("for", id);
+        label.textContent = t.extraGuestLabel(i);
+
+        const input = document.createElement("input");
+        input.id = id;
+        input.type = "text";
+        input.dataset.extraIndex = String(i);
+        input.placeholder = (languageEl.value==="es") ? "Nombre y apellido" : "First and last name";
+
+        field.appendChild(label);
+        field.appendChild(input);
+        extraGuestNamesFields.appendChild(field);
+      }
+    });
+
+    function markError(fieldDiv){
+      fieldDiv.classList.add("field-error");
+      setTimeout(()=>fieldDiv.classList.remove("field-error"), 450);
+    }
+    function clearAllErrors(){
+      document.querySelectorAll(".field-error").forEach(el=>el.classList.remove("field-error"));
+    }
+    function requireValue(id){
+      const el = document.getElementById(id);
+      const fieldDiv = el.closest(".field");
+      const v = (el.value || "").trim();
+      if (!v){ markError(fieldDiv); return false; }
+      return true;
+    }
+
+    function validate(){
+      const choice = responseEl.value;
+      if (!choice) return false;
+
+      let ok = true;
+      ok = requireValue("firstName") && ok;
+      ok = requireValue("lastName") && ok;
+
+      if (choice === "yes"){
+        ok = requireValue("phone") && ok;
+        ok = requireValue("email") && ok;
+        ok = requireValue("address") && ok;
+        ok = requireValue("city") && ok;
+        ok = requireValue("state") && ok;
+        ok = requireValue("zip") && ok;
+        ok = requireValue("extraGuestsCount") && ok;
+
+        const n = Number(extraGuestsCountEl.value ?? "");
+        if (!Number.isNaN(n) && n > 0){
+          extraGuestNamesFields.querySelectorAll(".field[data-required='true']").forEach(div=>{
+            const input = div.querySelector("input");
+            if (!input.value.trim()){
+              markError(div);
+              ok = false;
+            }
+          });
+        }
+      }
+
+      if (choice === "maybe"){
+        ok = requireValue("followUpTime") && ok;
+      }
+
+      return ok;
+    }
+
+    function rand(min, max){ return Math.random()*(max-min)+min; }
+
+    const CONFETTI_COLORS = [
+      "rgba(142,165,150,.85)",
+      "rgba(185,200,191,.85)",
+      "rgba(231,196,199,.85)",
+      "rgba(233,220,199,.85)",
+      "rgba(201,216,231,.85)"
+    ];
+
+    const PETAL_COLORS = [
+      "rgba(231,196,199,.88)",
+      "rgba(255,255,255,.88)",
+      "rgba(233,220,199,.86)",
+      "rgba(201,216,231,.84)"
+    ];
+
+    function spawnConfetti(count=110){
+      for (let i=0;i<count;i++){
+        const d = document.createElement("div");
+        d.className = "confetti";
+        d.style.left = rand(0, 100) + "vw";
+        d.style.animationDuration = rand(3.0, 5.6) + "s";
+        d.style.background = CONFETTI_COLORS[Math.floor(rand(0, CONFETTI_COLORS.length))];
+        d.style.width = rand(6, 10) + "px";
+        d.style.height = rand(9, 14) + "px";
+        overlay.appendChild(d);
+        d.addEventListener("animationend", ()=>d.remove());
+      }
+    }
+
+    function spawnPetals(count=70){
+      for (let i=0;i<count;i++){
+        const p = document.createElement("div");
+        p.className = "petal";
+        p.style.left = rand(0, 100) + "vw";
+        p.style.animationDuration = rand(4.2, 8.8) + "s";
+        p.style.width = rand(12, 16) + "px";
+        p.style.height = rand(16, 24) + "px";
+        p.style.background = PETAL_COLORS[Math.floor(rand(0, PETAL_COLORS.length))];
+        p.style.transform = `rotate(${rand(0,360)}deg)`;
+        overlay.appendChild(p);
+        p.addEventListener("animationend", ()=>p.remove());
+      }
+    }
+
+    function showCelebration(){
+      overlay.classList.add("show");
+      spawnConfetti(110);
+      spawnPetals(70);
+      setTimeout(()=>overlay.classList.remove("show"), 4200);
+    }
+
+    function postToAppsScript(payload){
+      const tempForm = document.createElement("form");
+      tempForm.action = SCRIPT_URL;
+      tempForm.method = "POST";
+      tempForm.target = "hidden_iframe";
+      tempForm.style.display = "none";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payload";
+      input.value = JSON.stringify(payload);
+      tempForm.appendChild(input);
+
+      document.body.appendChild(tempForm);
+      tempForm.submit();
+      tempForm.remove();
+    }
+
+    iframe.addEventListener("load", ()=>{
+      showCelebration();
+      form.reset();
+      responseEl.value = "";
+      sharedFields.classList.add("hidden");
+      yesBlock.classList.add("hidden");
+      noBlock.classList.add("hidden");
+      maybeBlock.classList.add("hidden");
+      extraGuestNamesFields.innerHTML = "";
+      extraGuestNamesWrap.classList.add("hidden");
+      submitBtn.classList.remove("loading");
+      submitBtn.disabled = false;
+    });
+
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault();
+      clearAllErrors();
+      if (!validate()) return;
+
+      const choice = responseEl.value;
+
+      const payload = {
+        language: languageEl.value,
+        response: choice,
+        firstName: document.getElementById("firstName").value.trim(),
+        lastName: document.getElementById("lastName").value.trim(),
+        phone: (choice==="yes") ? document.getElementById("phone").value.trim() : "",
+        email: (choice==="yes") ? document.getElementById("email").value.trim() : "",
+        address: (choice==="yes") ? document.getElementById("address").value.trim() : "",
+        city: (choice==="yes") ? document.getElementById("city").value.trim() : "",
+        state: (choice==="yes") ? document.getElementById("state").value.trim() : "",
+        zip: (choice==="yes") ? document.getElementById("zip").value.trim() : "",
+        extraGuestsCount: (choice==="yes") ? extraGuestsCountEl.value : "",
+        extraGuestNames: [],
+        followUpTime: (choice==="maybe") ? document.getElementById("followUpTime").value : "",
+        messageToCouple:
+          choice==="yes" ? document.getElementById("messageYes").value.trim() :
+          choice==="no" ? document.getElementById("messageNo").value.trim() :
+          document.getElementById("messageMaybe").value.trim(),
+        userAgent: navigator.userAgent
+      };
+
+      if (choice === "yes"){
+        const n = Number(extraGuestsCountEl.value ?? 0);
+        if (!Number.isNaN(n) && n > 0){
+          for (let i=1; i<=n; i++){
+            const el = document.getElementById(`extra_${i}`);
+            if (el) payload.extraGuestNames.push(el.value.trim());
+          }
+        }
+      }
+
+      submitBtn.classList.add("loading");
+      submitBtn.disabled = true;
+
+      postToAppsScript(payload);
+
+      setTimeout(()=>{
+        submitBtn.classList.remove("loading");
+        submitBtn.disabled = false;
+      }, 9000);
+    });
+
+    resetBtn.addEventListener("click", ()=>{
+      clearAllErrors();
+      form.reset();
+      responseEl.value = "";
+      sharedFields.classList.add("hidden");
+      yesBlock.classList.add("hidden");
+      noBlock.classList.add("hidden");
+      maybeBlock.classList.add("hidden");
+      extraGuestNamesFields.innerHTML = "";
+      extraGuestNamesWrap.classList.add("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
+    });
+
+    setLang("en");
+  </script>
+</body>
+</html>
+
+  </div>
+
+  <!-- 🔼 END RSVP HTML 🔼 -->
+
+</body>
+</html>
