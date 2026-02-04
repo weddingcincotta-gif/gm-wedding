@@ -1,70 +1,416 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home | Gabriel & Michelle</title>
-  <link rel="stylesheet" href="site.css" />
-  <script src="i18n.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel & Michelle’s Wedding</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --cream:#FBF8F2;
+      --gold:#C9B37E;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 22px;
+      --max: 1080px;
+      --card: rgba(255,255,255,.08);
+      --stroke: rgba(201,179,126,.35);
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family:"Playfair Display", serif;
+      color: var(--cream);
+      background: radial-gradient(900px 420px at 50% -10%, rgba(201,179,126,.14), transparent 60%),
+                  linear-gradient(180deg, #0B2E25 0%, #07221b 100%);
+      overflow-x:hidden;
+    }
+    .wrap{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      height:560px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .hero-bg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.52) 0%, rgba(0,0,0,.62) 55%, rgba(11,46,37,1) 100%),
+        url("https://image2url.com/r2/default/images/1770177997046-9bdfaf39-af7b-41be-a81f-3b5506dae73e.jpg") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: grayscale(10%) contrast(1.04);
+      opacity:0;
+      transition: opacity 800ms ease;
+    }
+    .hero.loaded .hero-bg{ opacity:1; }
+
+    .hero-overlay{
+      position:absolute; inset:-2px; pointer-events:none;
+      background:
+        radial-gradient(520px 240px at 50% 38%, rgba(0,0,0,.42), transparent 70%),
+        radial-gradient(820px 420px at 50% 12%, rgba(201,179,126,.20), transparent 60%);
+    }
+
+    /* STARS */
+    .stars{ position:absolute; inset:0; pointer-events:none; opacity:.45; mix-blend-mode:screen; }
+    .star{
+      position:absolute;
+      border-radius:999px;
+      background: rgba(251,248,242,.95);
+      box-shadow: 0 0 10px rgba(201,179,126,.22);
+      animation: drift linear infinite;
+    }
+    @keyframes drift{ from{ transform:translateY(0);} to{ transform:translateY(120px);} }
+
+    .hero-content{
+      position:relative;
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+      padding-top: 30px;
+      z-index:2;
+    }
+
+    /* Bigger language toggle */
+    .lang-float{
+      position:absolute; top:14px; right:14px;
+      display:flex; gap:10px; padding:10px;
+      border-radius:999px;
+      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 50px rgba(0,0,0,.28);
+      z-index:10;
+    }
+    .pill{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      color: var(--cream);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .pill:hover{ background: rgba(255,255,255,.14); transform: translateY(-1px); }
+    .pill.active{ border-color: rgba(201,179,126,.78); background: rgba(201,179,126,.18); }
+
+    .gold-metallic{
+      font-family:"Great Vibes", cursive;
+      font-size: clamp(46px, 6.5vw, 88px);
+      line-height:1.12;
+      padding:12px 12px 6px;
+      display:inline-block;
+      background: linear-gradient(120deg,#f6e27a 0%,#e6c15a 20%,#fff2b0 35%,#d4af37 50%,#fff6cc 65%,#c9a23f 80%,#f6e27a 100%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      text-shadow: 0 1px 1px rgba(255,255,255,.18), 0 10px 30px rgba(0,0,0,.35);
+    }
+    .divider{
+      width:180px; height:1px; margin:16px auto 14px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .subtitle{
+      font-size:12px; letter-spacing:.38em; text-transform:uppercase; opacity:.92;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55);
+    }
+    .date{
+      margin-top:8px; font-size:15px; letter-spacing:.22em; opacity:.95;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55);
+    }
+    .location-line{
+      margin-top:10px; font-size:13px; letter-spacing:.10em; opacity:.92;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55);
+    }
+    .location-line strong{ color: var(--gold); font-weight:600; }
+
+    .countdown{
+      display:flex; justify-content:center; gap:12px; margin-top:18px; flex-wrap:wrap;
+    }
+    .time-box{
+      min-width:90px; padding:12px 12px; border-radius:16px;
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.55);
+      backdrop-filter: blur(8px);
+    }
+    .time{ font-size:26px; font-weight:600; color:#1f1f1f; line-height:1; }
+    .label{ margin-top:6px; font-size:10px; letter-spacing:.22em; text-transform:uppercase; opacity:.70; color:#1f1f1f; }
+
+    .btn-row{ margin-top:16px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .btn{
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.10);
+      color: var(--cream);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      backdrop-filter: blur(10px);
+      transition: .2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.20);
+    }
+    .btn:hover{ background: rgba(201,179,126,.16); border-color: rgba(201,179,126,.55); transform: translateY(-1px); }
+
+    /* CONTENT */
+    main{ padding:44px 0 54px; }
+    .callout{
+      background: radial-gradient(700px 260px at 50% 0%, rgba(201,179,126,.14), transparent 65%), rgba(255,255,255,.06);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      text-align:center;
+    }
+    .callout p{ font-size:17px; line-height:1.9; color: rgba(251,248,242,.96); }
+    .callout strong{ color: var(--gold); font-weight:600; }
+    .micro-note{ margin-top:16px; font-size:14px; line-height:1.9; opacity:.92; }
+    .micro-note .es{ margin-top:8px; font-size:13.5px; opacity:.92; }
+
+    .grid{
+      display:grid; grid-template-columns: 1.1fr .9fr;
+      gap:18px; margin-top:22px; align-items:stretch;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-height: 380px;
+    }
+    .card-head{ padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.10); }
+    .card-title{ font-size:12px; letter-spacing:.22em; text-transform:uppercase; opacity:.92; }
+    .card-sub{ margin-top:6px; font-size:12.5px; opacity:.78; }
+    .card-body{ height: calc(100% - 66px); }
+    .map-wrap iframe{ width:100%; height:100%; border:0; display:block; }
+    .cal-wrap{ height:100%; display:flex; align-items:center; justify-content:center; padding:16px; }
+    .cal-wrap img{ width:100%; height:100%; object-fit:contain; border-radius:16px; border:1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.12); padding:10px; }
+
+    /* language */
+    [data-lang="es"]{ display:none; }
+    body.es [data-lang="en"]{ display:none; }
+    body.es [data-lang="es"]{ display:block; }
+
+    @media (max-width: 900px){
+      .hero{ height:520px; }
+      .grid{ grid-template-columns:1fr; }
+      .card{ min-height:340px; }
+    }
+    @media (max-width: 560px){
+      .hero{ height:480px; }
+      .time{ font-size:23px; }
+      .time-box{ min-width:80px; }
+      .callout p{ font-size:16px; }
+    }
+  </style>
 </head>
-<body onload="initWeddingSite(); initCountdown('2026-11-13T16:00:00-06:00');">
+<body>
 
-  <div class="navbar">
-    <div class="nav-inner">
-      <div class="brand">G &amp; M</div>
+<header class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
 
-      <div class="nav-links">
-        <a href="index.html" data-i18n="nav_home"></a>
-        <a href="our-story.html" data-i18n="nav_story"></a>
-        <a href="dress-code.html" data-i18n="nav_dress"></a>
-        <a href="qa.html" data-i18n="nav_qa"></a>
-        <a href="travel.html" data-i18n="nav_travel"></a>
-        <a href="registry.html" data-i18n="nav_registry"></a>
-        <a href="rsvp.html" data-i18n="nav_rsvp"></a>
-      </div>
-
-      <div class="lang-toggle">
-        <button id="langEN" class="pill" onclick="setLang('en')">EN</button>
-        <button id="langES" class="pill" onclick="setLang('es')">ES</button>
-      </div>
-    </div>
+  <div class="lang-float" aria-label="Language toggle">
+    <button class="pill active" id="btnEN" type="button">EN</button>
+    <button class="pill" id="btnES" type="button">ES</button>
   </div>
 
-  <div class="container">
-    <div class="card hero">
-      <div>
-        <h1 class="title" data-i18n="home_title"></h1>
-        <p class="subtitle" data-i18n="home_date"></p>
+  <div class="hero-content">
+    <h1 class="gold-metallic">Gabriel &amp; Michelle’s Wedding</h1>
+    <div class="divider"></div>
 
-        <div class="meta">
-          <span class="badge"><strong data-i18n="home_location_label"></strong>: <span id="wLocation">[Your Wedding Location Here]</span></span>
-        </div>
+    <div class="subtitle" data-lang="en">join us as we say "i do"</div>
+    <div class="subtitle" data-lang="es">acompañanos mientras decimos “sí, acepto”</div>
 
-        <div class="hr"></div>
+    <div class="date" data-lang="en">November 13, 2026</div>
+    <div class="date" data-lang="es">13 de noviembre de 2026</div>
 
-        <p class="subtitle" data-i18n="home_countdown_label"></p>
-        <div class="countdown">
-          <div class="kpi"><strong id="cdDays">0</strong><span>Days</span></div>
-          <div class="kpi"><strong id="cdHours">0</strong><span>Hours</span></div>
-          <div class="kpi"><strong id="cdMins">0</strong><span>Minutes</span></div>
-          <div class="kpi"><strong id="cdSecs">0</strong><span>Seconds</span></div>
-        </div>
+    <div class="location-line" data-lang="en"><strong>Weimar, Texas</strong> • outdoor celebration under the stars</div>
+    <div class="location-line" data-lang="es"><strong>Weimar, Texas</strong> • celebración al aire libre bajo las estrellas</div>
 
-        <div class="btn-row" style="justify-content:flex-start;margin-top:18px;">
-          <a class="btn" href="rsvp.html" data-i18n="home_cta_rsvp"></a>
-          <a class="btn btn-outline" href="our-story.html" data-i18n="nav_story"></a>
-        </div>
+    <div class="countdown">
+      <div class="time-box"><div class="time" id="days">0</div><div class="label" data-lang="en">Days</div><div class="label" data-lang="es">Días</div></div>
+      <div class="time-box"><div class="time" id="hours">0</div><div class="label" data-lang="en">Hours</div><div class="label" data-lang="es">Horas</div></div>
+      <div class="time-box"><div class="time" id="minutes">0</div><div class="label" data-lang="en">Minutes</div><div class="label" data-lang="es">Minutos</div></div>
+      <div class="time-box"><div class="time" id="seconds">0</div><div class="label" data-lang="en">Seconds</div><div class="label" data-lang="es">Segundos</div></div>
+    </div>
 
-        <p class="tiny muted" style="margin-top:16px;">
-          Tip: Replace <code>[Your Wedding Location Here]</code> with your venue/city.
-        </p>
-      </div>
-
-      <div>
-        <img class="photo" src="assets/couple.jpg" alt="Gabriel and Michelle" />
-      </div>
+    <div class="btn-row">
+      <a class="btn" id="googleCalBtn" target="_blank" rel="noopener">📅 <span data-lang="en">Add to Google Calendar</span><span data-lang="es">Agregar a Google Calendar</span></a>
+      <a class="btn" id="icsBtn" download="Gabriel-Michelle-Wedding.ics">🍎 <span data-lang="en">Apple / Outlook (.ics)</span><span data-lang="es">Apple / Outlook (.ics)</span></a>
     </div>
   </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="callout">
+      <p data-lang="en">
+        Our wedding will be an outdoor celebration under the stars in <strong>Weimar, Texas</strong>, featuring a beautifully lit tent,
+        an open-air dance floor, and an intimate evening surrounded by love.
+      </p>
+      <p data-lang="es">
+        Nuestra boda será una celebración al aire libre bajo las estrellas en <strong>Weimar, Texas</strong>, con una carpa bellamente iluminada,
+        una pista de baile al aire libre y una noche íntima rodeada de amor.
+      </p>
+
+      <div class="micro-note">
+        <div data-lang="en">Above, you’ll find all of the tabs. We kindly ask that you take a moment to review each one.</div>
+        <div class="es" data-lang="es">Arriba encontrará todas las pestañas. Le pedimos amablemente que se tome un momento para revisar cada una.</div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title" data-lang="en">Weimar Area Map</div>
+          <div class="card-title" data-lang="es">Mapa del Área de Weimar</div>
+          <div class="card-sub" data-lang="en">Venue details will be shared closer to the date.</div>
+          <div class="card-sub" data-lang="es">Los detalles del lugar se compartirán más cerca de la fecha.</div>
+        </div>
+        <div class="card-body map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27724.76677541556!2d-96.79483065886104!3d29.7024949562114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8643948580303fb3%3A0xce1cc7ae3e2e0ecb!2sWeimar%2C%20TX%2078962!5e0!3m2!1sen!2sus!4v1770178271825!5m2!1sen!2sus"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen=""
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div class="card-title" data-lang="en">Save the Date</div>
+          <div class="card-title" data-lang="es">Reserva la Fecha</div>
+          <div class="card-sub" data-lang="en">Friday • November 13, 2026</div>
+          <div class="card-sub" data-lang="es">Viernes • 13 de noviembre de 2026</div>
+        </div>
+        <div class="card-body cal-wrap">
+          <img src="https://image2url.com/r2/default/images/1770178087770-c07e4f3e-c70c-4660-b8be-ce4f20bafb6b.png" alt="November 2026 calendar with the 13th highlighted" loading="lazy" />
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+  // If this file is hosted, JS will run and everything works.
+
+  // Fade-in background image
+  (function(){
+    const hero = document.getElementById("hero");
+    const img = new Image();
+    img.src = "https://image2url.com/r2/default/images/1770177997046-9bdfaf39-af7b-41be-a81f-3b5506dae73e.jpg";
+    img.onload = () => hero.classList.add("loaded");
+    img.onerror = () => hero.classList.add("loaded");
+  })();
+
+  // Stars (10–20)
+  (function(){
+    const stars = document.getElementById("stars");
+    const count = 18;
+    for(let i=0;i<count;i++){
+      const s = document.createElement("div");
+      s.className = "star";
+      const left = Math.random()*100;
+      const top = Math.random()*62;
+      const dur = 12 + Math.random()*18;
+      const delay = Math.random()*8;
+      const size = 1.2 + Math.random()*1.8;
+      const opacity = 0.22 + Math.random()*0.45;
+      s.style.left = left + "%";
+      s.style.top = top + "%";
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.opacity = opacity.toFixed(2);
+      s.style.animationDuration = dur + "s";
+      s.style.animationDelay = (-delay) + "s";
+      stars.appendChild(s);
+    }
+  })();
+
+  // Countdown (robust ISO)
+  const weddingDate = new Date("2026-11-13T00:00:00").getTime();
+  const elDays = document.getElementById("days");
+  const elHours = document.getElementById("hours");
+  const elMinutes = document.getElementById("minutes");
+  const elSeconds = document.getElementById("seconds");
+
+  function updateCountdown(){
+    let distance = weddingDate - Date.now();
+    if(distance <= 0){
+      elDays.textContent = elHours.textContent = elMinutes.textContent = elSeconds.textContent = "0";
+      return;
+    }
+    const days = Math.floor(distance / 86400000); distance -= days*86400000;
+    const hours = Math.floor(distance / 3600000); distance -= hours*3600000;
+    const minutes = Math.floor(distance / 60000); distance -= minutes*60000;
+    const seconds = Math.floor(distance / 1000);
+
+    elDays.textContent = String(days);
+    elHours.textContent = String(hours);
+    elMinutes.textContent = String(minutes);
+    elSeconds.textContent = String(seconds);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // EN/ES toggle
+  const btnEN = document.getElementById("btnEN");
+  const btnES = document.getElementById("btnES");
+
+  function setLang(lang){
+    document.body.classList.toggle("es", lang === "es");
+    btnEN.classList.toggle("active", lang !== "es");
+    btnES.classList.toggle("active", lang === "es");
+    try{ localStorage.setItem("gm_lang", lang); }catch(e){}
+  }
+  try{ if(localStorage.getItem("gm_lang")==="es") setLang("es"); }catch(e){}
+  btnEN.addEventListener("click", ()=>setLang("en"));
+  btnES.addEventListener("click", ()=>setLang("es"));
+
+  // Calendar links (no exact address)
+  const title = encodeURIComponent("Gabriel & Michelle’s Wedding");
+  const details = encodeURIComponent("Save the Date! Outdoor celebration under the stars in Weimar, Texas. Venue details will be shared closer to the date.");
+  const location = encodeURIComponent("Weimar, TX");
+  const start = "20261113", end="20261114";
+  document.getElementById("googleCalBtn").href =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+title+"&dates="+start+"/"+end+"&details="+details+"&location="+location;
+
+  const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GM Wedding//Save the Date//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${Date.now()}@gm-wedding
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g,"").split(".")[0]}Z
+DTSTART;VALUE=DATE:20261113
+DTEND;VALUE=DATE:20261114
+SUMMARY:Gabriel & Michelle’s Wedding
+DESCRIPTION:Save the Date! Outdoor celebration under the stars in Weimar, Texas. Venue details will be shared closer to the date.
+LOCATION:Weimar, TX
+END:VEVENT
+END:VCALENDAR`;
+  const blob = new Blob([ics], { type:"text/calendar;charset=utf-8" });
+  document.getElementById("icsBtn").href = URL.createObjectURL(blob);
+</script>
 
 </body>
 </html>
